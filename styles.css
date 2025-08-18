@@ -1,3 +1,30 @@
+/* Theme variables */
+:root {
+    /* Light theme (default) */
+    --bg-primary: #ffffff;
+    --bg-secondary: #fff;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --accent-color: #40E0D0;
+    --highlight-color: #FFE135;
+    --btn-primary: #FF6B35;
+    --btn-secondary: #333;
+    --profile-bg: #FFE135;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --accent-color: #40E0D0;
+    --highlight-color: #40E0D0;
+    --btn-primary: #FF6B35;
+    --btn-secondary: #40E0D0;
+    --profile-bg: #40E0D0;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -7,9 +34,10 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: #ffffff;
-    color: #333;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Navigation */
@@ -18,7 +46,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 4rem;
-    background: #fff;
+    background: var(--bg-secondary);
+    transition: background-color 0.3s ease;
 }
 
 .logo {
@@ -29,6 +58,16 @@ body {
 
 .logo-icon {
     font-size: 1.5rem;
+    font-weight: bold;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo-text {
@@ -45,18 +84,24 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-primary);
     font-weight: 500;
     font-size: 0.95rem;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #40E0D0;
+    color: var(--accent-color);
 }
 
 .theme-toggle {
     cursor: pointer;
     font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
 }
 
 /* Hero Section */
@@ -79,14 +124,14 @@ body {
 }
 
 .social-sidebar a {
-    color: #333;
+    color: var(--text-primary);
     font-size: 1.2rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-sidebar a:hover {
     transform: translateY(-3px);
-    color: #40E0D0;
+    color: var(--accent-color);
 }
 
 /* Hero Content */
@@ -95,7 +140,7 @@ body {
 }
 
 .greeting-bubble {
-    background: #40E0D0;
+    background: var(--accent-color);
     color: white;
     padding: 0.5rem 1.2rem;
     border-radius: 20px;
@@ -108,10 +153,11 @@ h1 {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    color: var(--text-primary);
 }
 
 .highlight {
-    color: #333;
+    color: var(--text-primary);
     position: relative;
     display: inline-block;
 }
@@ -123,13 +169,14 @@ h1 {
     left: 0;
     width: 100%;
     height: 0.4rem;
-    background: #FFE135;
+    background: var(--highlight-color);
     z-index: -1;
+    transition: background-color 0.3s ease;
 }
 
 .role {
     font-size: 1.3rem;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 0.5rem;
     line-height: 1.6;
     max-width: 90%;
@@ -137,7 +184,7 @@ h1 {
 
 .location {
     font-size: 1.1rem;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 0.5rem;
 }
 
@@ -162,21 +209,23 @@ h1 {
 }
 
 .btn.primary {
-    background: #FF6B35;
+    background: var(--btn-primary);
     color: white;
 }
 
 .btn.primary:hover {
-    background: #ff5a1f;
+    background: var(--btn-primary);
+    opacity: 0.9;
 }
 
 .btn.secondary {
-    background: #333;
+    background: var(--btn-secondary);
     color: white;
 }
 
 .btn.secondary:hover {
-    background: #222;
+    background: var(--btn-secondary);
+    opacity: 0.9;
 }
 
 /* Profile Image Section */
@@ -195,10 +244,11 @@ h1 {
     position: absolute;
     width: 420px;
     height: 420px;
-    background: #FFE135;
+    background: var(--profile-bg);
     border-radius: 50%;
     left: 0;
     top: 40px;
+    transition: background-color 0.3s ease;
 }
 
 .profile-image {
