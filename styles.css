@@ -1,0 +1,301 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    background: #fff;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    color: #40E0D0;
+}
+
+.theme-toggle {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    min-height: calc(100vh - 80px);
+    padding: 2rem 4rem;
+    position: relative;
+    gap: 2rem;
+}
+
+/* Social Sidebar */
+.social-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    padding-top: 4rem;
+}
+
+.social-sidebar a {
+    color: #333;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.social-sidebar a:hover {
+    transform: translateY(-3px);
+    color: #40E0D0;
+}
+
+/* Hero Content */
+.hero-content {
+    padding: 6rem 0;
+}
+
+.greeting-bubble {
+    background: #40E0D0;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.4rem;
+    background: #FFE135;
+    z-index: -1;
+}
+
+.role {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.location {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.9rem 1.8rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn.primary {
+    background: #FF6B35;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #ff5a1f;
+}
+
+.btn.secondary {
+    background: #333;
+    color: white;
+}
+
+.btn.secondary:hover {
+    background: #222;
+}
+
+/* Profile Image Section */
+.profile-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+    width: 420px;
+    height: 420px;
+    margin: 0 auto;
+}
+
+.profile-background {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background: #FFE135;
+    border-radius: 50%;
+    left: 0;
+    top: 40px;
+}
+
+.profile-image {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    top: 50px;
+    left: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .hero {
+        grid-template-columns: 60px 1fr 1fr;
+        padding: 2rem;
+    }
+    
+    .profile-background {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .profile-image {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 1rem 2rem;
+    }
+    
+    .hero {
+        grid-template-columns: 60px 1fr;
+    }
+    
+    .profile-container {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-content {
+        padding: 2rem 0;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .hero {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+    }
+    
+    .social-sidebar {
+        flex-direction: row;
+        padding-top: 1rem;
+        justify-content: center;
+    }
+    
+    .profile-background {
+        width: 300px;
+        height: 300px;
+        right: -20px;
+    }
+    
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .role {
+        max-width: 100%;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+}
