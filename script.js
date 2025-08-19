@@ -1,6 +1,22 @@
 // Theme toggle functionality
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.querySelector('.theme-toggle');
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Mobile navigation toggle
+    mobileNavToggle.addEventListener('click', () => {
+        mobileNavToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileNavToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
     
     // Check for saved theme preference, otherwise use system preference
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
